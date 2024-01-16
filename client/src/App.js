@@ -1,13 +1,17 @@
-
-import { Route, Routes } from 'react-router-dom';
-import HomePage from './Pages/HomePage';
+import { SocketProvider } from "./providers/Socket";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import Room from "./Pages/Room";
 
 function App() {
   return (
     <div className="App">
-     <Routes>
-      <Route element={<HomePage/>} path='/'/>
-     </Routes>
+      <SocketProvider>
+        <Routes>
+          <Route element={<HomePage />} path="/" />
+          <Route element={<Room />} path="/room/:id" />
+        </Routes>
+      </SocketProvider>
     </div>
   );
 }
